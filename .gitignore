@@ -1,3 +1,17 @@
 .vscode
 *.lk
 *.asm
+*.c~
+*.hex~
+*.cdb
+*.hashes
+*.lst
+*.map
+*.mem
+*.omf
+*.rel
+*.rst
+*.sym
+*.ihx
+*.adb
+*.asm~
