@@ -18,7 +18,7 @@
 #define Des 5500
 
 #define space 40
-
+#define buzzer_pin P2_5
 
 void write_byte(unsigned int eeaddress, char data)
 {
@@ -39,8 +39,6 @@ void setup()
   unsigned int i;
   unsigned int epromaddr;
   int bulan;
-  int index;
-
   // for (i = 0; i < 8191; i++)
   // {
   //   write_byte(i, 0); //hapus memori
@@ -48,7 +46,8 @@ void setup()
 
   for (bulan = 0; bulan < 12; bulan++)
   {
-    int addr;
+    int addr,index;
+    index = 0;
     switch (bulan)
     {
     case 0:
@@ -88,14 +87,13 @@ void setup()
       addr = Des;
       break;
     }
-    index = 0;
     for (i = 0; i < 12; i++)
     {
       int count;
       epromaddr = addr;
       for (count = 1; count < 32; count++)
       {
-        unsigned char data; //= pgm_read_byte_near(januari ( index);
+        unsigned char data; 
         switch (bulan)
         {
         case 0:
@@ -136,8 +134,7 @@ void setup()
           break;
         }
         index++;
-        // i2c_eeprom_write_byte( 0xA0 , epromaddr , data );
-        write_byte(epromaddr, data); // Call Tulis_jadwal
+        write_byte(epromaddr, data); // Copy data to eeprom
         epromaddr++;
       }
       addr = addr + space;
@@ -147,10 +144,10 @@ void setup()
 
 void loop()
 {
-  P2_5 = 1; //(A3, HIGH);
-  delay(400);
-  P2_5 = 0; //(A3, LOW);
-  delay(400);
+  buzzer_pin = 1; //
+  delay(300);
+  buzzer_pin = 0; //
+  delay(300);
 }
 
 void main(void)
