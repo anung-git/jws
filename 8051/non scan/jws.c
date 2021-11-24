@@ -107,48 +107,12 @@ unsigned char makebcd(unsigned char a)
 // data[a]=makebcd(c/60);
 // data[b]=makebcd(c%60);
 // }
+
+__code unsigned int bulan_adr[] = {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500};
+
 void bacaJadwal(void)
 {
-	unsigned int addr = 0;
-	switch (data[bulan])
-	{
-	case 0x01:
-		addr = Jan;
-		break;
-	case 0x02:
-		addr = Feb;
-		break;
-	case 0x03:
-		addr = Mar;
-		break;
-	case 0x04:
-		addr = Apr;
-		break;
-	case 0x05:
-		addr = Mei;
-		break;
-	case 0x06:
-		addr = Jun;
-		break;
-	case 0x07:
-		addr = Jul;
-		break;
-	case 0x08:
-		addr = Agu;
-		break;
-	case 0x09:
-		addr = Sep;
-		break;
-	case 0x10:
-		addr = Okt;
-		break;
-	case 0x11:
-		addr = Nov;
-		break;
-	case 0x12:
-		addr = Des;
-		break;
-	}
+	unsigned int addr = bulan_adr[bulan - 1];
 	addr = addr + makedec(data[tanggal]);
 	data[jamimsya] = readeprom(addr);
 	addr = addr + incremet_jadwal;

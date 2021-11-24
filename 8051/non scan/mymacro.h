@@ -23,18 +23,6 @@
 #define jamisya 18
 #define menitisya 19
 
-#define Jan 0
-#define Feb 500
-#define Mar 1000
-#define Apr 1500
-#define Mei 2000
-#define Jun 2500
-#define Jul 3000
-#define Agu 3500
-#define Sep 4000
-#define Okt 4500
-#define Nov 5000
-#define Des 5500
 #define addr_beep 6001
 #define addr_hidup 6002
 #define addr_mati 6003
