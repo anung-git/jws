@@ -46,3 +46,4 @@ void shiftout_jadwal(unsigned char a)
 		clock_jadwal = 0;
 	}
 }
+

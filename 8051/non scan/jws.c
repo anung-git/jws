@@ -107,7 +107,7 @@ unsigned char makebcd(unsigned char a)
 // data[a]=makebcd(c/60);
 // data[b]=makebcd(c%60);
 // }
-void Baca_jadwal(void)
+void bacaJadwal(void)
 {
 	unsigned int addr = 0;
 	switch (data[bulan])
@@ -263,24 +263,24 @@ void tampil()
 	temp = sum;
 
 	shiftout_jadwal(segmen[31]);
-	shiftout_jadwal(segmen[30]); //
-	shiftout_jadwal(segmen[29]); //
-	shiftout_jadwal(segmen[28]); //
+	shiftout_jadwal(segmen[30]);
+	shiftout_jadwal(segmen[29]);
+	shiftout_jadwal(segmen[28]);
 
 	shiftout_jadwal(segmen[35]);
-	shiftout_jadwal(segmen[34]); //
-	shiftout_jadwal(segmen[33]); //
-	shiftout_jadwal(segmen[32]); //
+	shiftout_jadwal(segmen[34]);
+	shiftout_jadwal(segmen[33]);
+	shiftout_jadwal(segmen[32]);
 
 	shiftout_jadwal(segmen[23]);
-	shiftout_jadwal(segmen[22]); //
-	shiftout_jadwal(segmen[21]); //
-	shiftout_jadwal(segmen[20]); //
+	shiftout_jadwal(segmen[22]);
+	shiftout_jadwal(segmen[21]);
+	shiftout_jadwal(segmen[20]);
 
 	shiftout_jadwal(segmen[27]);
-	shiftout_jadwal(segmen[26]); //
-	shiftout_jadwal(segmen[25]); //
-	shiftout_jadwal(segmen[24]); //
+	shiftout_jadwal(segmen[26]);
+	shiftout_jadwal(segmen[25]);
+	shiftout_jadwal(segmen[24]);
 
 	shiftout_jadwal(segmen[15]);
 	shiftout_jadwal(segmen[14]); //
@@ -388,7 +388,6 @@ void T_menu()
 	buzer = BUZER_OFF;
 	while (menu == 0)
 	{
-		//tampil();
 		menu = 1;
 		delay(150);
 	}
@@ -400,7 +399,6 @@ void T_up()
 	buzer = BUZER_OFF;
 	while (up == 0)
 	{
-		//tampil();
 		up = 1;
 		delay(150);
 	}
@@ -412,7 +410,6 @@ void T_down()
 	buzer = BUZER_OFF;
 	while (down == 0)
 	{
-		//tampil();
 		down = 1;
 		delay(150);
 	}
@@ -521,7 +518,7 @@ void tombol()
 		seting(7, 0, 99); //tahun
 		seting(3, 1, 7);  //hari
 		tulisjam();		  //simpan seting
-		Baca_jadwal();
+		bacaJadwal();
 		delay(600);
 		PowerOn();
 	}
@@ -573,7 +570,7 @@ void tombol()
 		writeeprom(a, addr_jumat);
 		bacajam();
 		delay(40);
-		Baca_jadwal();
+		bacaJadwal();
 		load();
 		delay(600);
 		PowerOn();
@@ -599,7 +596,7 @@ void tombol()
 	// 		delay(50);
 	// 		bacajam();
 	// 		delay(50);
-	// 		Baca_jadwal();
+	// 		bacaJadwal();
 	// 		load();
 	// 		}
 	// 	}
@@ -815,7 +812,7 @@ jumatan:
 		mundur--;
 		displayOff();
 	}
-	Baca_jadwal();
+	bacaJadwal();
 alarm_off:
 	EA = 1;
 }
@@ -932,7 +929,7 @@ void main(void)
 	delay(40);
 	bacajam();
 	//tulisjam();
-	Baca_jadwal();
+	bacaJadwal();
 	while (1)
 	{
 		bacajam();
@@ -940,7 +937,7 @@ void main(void)
 		if (data[jam] == 0 && data[menit] == 0)
 		{
 			delay(500);
-			Baca_jadwal();
+			bacaJadwal();
 		}
 		for (h = 0; h < 10; h++)
 		{

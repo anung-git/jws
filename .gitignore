@@ -3,7 +3,9 @@
 *.asm
 *.c~
 *.hex~
+*.ihx~
 *.cdb
+*.cdb~
 *.hashes
 *.lst
 *.map

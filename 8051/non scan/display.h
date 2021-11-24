@@ -6,4 +6,6 @@
 void shiftout_jam(unsigned char a);
 void shiftout_tanggal(unsigned char a);
 void shiftout_jadwal(unsigned char a);
+// void tampilOff();
+// void displayOff();
 #endif // DISPLAY_H_

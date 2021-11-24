@@ -12,8 +12,8 @@
 
 #ifndef I2C_H_   /* Include guard */
 #define I2C_H_
-#define SDA P0_1			/* Set P2.7 = SDA */
-#define SCL P0_0			/* Set P2.6 = SCL */
+#define SDA P0_0			/* Set P2.7 = SDA */
+#define SCL P0_1			/* Set P2.6 = SCL */
 #include "i2c.c"
 #include <at89x52.h>  
  
