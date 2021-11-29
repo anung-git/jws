@@ -1,11 +1,13 @@
 #include <at89x52.h>
 #include <stdio.h>
-#include "purworejo.h"
+#include "jogja.h"
 #include "i2c.h"
 #include "util.h"
 
-__code unsigned int bulan_adr[] = {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500};
-#define space 40
+// __code unsigned int bulan_adr[] = {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500};
+// #define space 40
+__code unsigned int bulan_adr[] = {0, 600, 1200, 1800, 2400, 3000, 3600, 4200, 4800, 5400, 6000, 6600};
+#define space 50
 #define buzzer_pin P2_2
 
 void write_byte(unsigned int eeaddress, char data)
@@ -61,14 +63,14 @@ void setup()
 
       jam = tabel[(bulan * 372) + tanggal];        //jam imsya
       menit = tabel[(bulan * 372) + 31 + tanggal]; //menit imsya
-      addTime(&jam, &menit, 8);
+      //addTime(&jam, &menit, 8);
       write_byte(epromaddr, jam);
       epromaddr = epromaddr + space;
       write_byte(epromaddr, menit);
 
       jam = tabel[(bulan * 372) + 62 + tanggal];   //jam subuh
       menit = tabel[(bulan * 372) + 93 + tanggal]; //menit subuh
-      addTime(&jam, &menit, 8);
+      //addTime(&jam, &menit, 8);
       epromaddr = epromaddr + space;
       write_byte(epromaddr, jam);
       epromaddr = epromaddr + space;

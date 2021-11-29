@@ -17,9 +17,8 @@ else if(a==4) for(b=4;b<12;b++) segmen[10]=kamis[(b-4)];
 else if(a==5) for(b=4;b<12;b++) segmen[10]=jumat[(b-4)];
 else if(a==6) for(b=4;b<12;b++) segmen[10]=sabtu[(b-4)];
 */
-
-#define ahad 1
-if(a==1){
+#define ahad 7
+if(a==7){
 	segmen[11]=ka;
 	segmen[10]=kh;
 	segmen[9]=ka;
@@ -29,8 +28,8 @@ if(a==1){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define senin 2
-else if(a==2){
+#define senin 1
+else if(a==1){
 	segmen[11]=k_;
 	segmen[10]=ks;
 	segmen[9]=ke;
@@ -40,8 +39,8 @@ else if(a==2){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define selasa 3
-else if(a==3){
+#define selasa 2
+else if(a==2){
 	segmen[11]=ks;
 	segmen[10]=ke;
 	segmen[9]=kl;
@@ -51,8 +50,8 @@ else if(a==3){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define rabu 4
-else if(a==4){
+#define rabu 3
+else if(a==3){
 	segmen[11]=k_;
 	segmen[10]=k_;
 	segmen[9]=kr;
@@ -62,8 +61,8 @@ else if(a==4){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define kamis 5
-else if(a==5){
+#define kamis 4
+else if(a==4){
 	segmen[11]=kk;
 	segmen[10]=ka;
 	segmen[9]=km1;
@@ -73,8 +72,8 @@ else if(a==5){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define jumat 6
-else if(a==6){
+#define jumat 5
+else if(a==5){
 	segmen[11]=kj;
 	segmen[10]=ku;
 	segmen[9]=km1;
@@ -84,8 +83,8 @@ else if(a==6){
 	segmen[5]=k_;
 	segmen[4]=k_;
 	}
-#define sabtu 7
-else if(a==7){
+#define sabtu 6
+else if(a==6){
 	segmen[11]=ks;
 	segmen[10]=ka;
 	segmen[9]=kb;

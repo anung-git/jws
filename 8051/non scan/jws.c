@@ -112,7 +112,7 @@ __code unsigned int bulan_adr[] = {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4
 
 void bacaJadwal(void)
 {
-	unsigned int addr = bulan_adr[bulan - 1];
+	unsigned int addr = bulan_adr[makedec(data[bulan]) - 1];
 	addr = addr + makedec(data[tanggal]);
 	data[jamimsya] = readeprom(addr);
 	addr = addr + incremet_jadwal;
@@ -469,6 +469,17 @@ unsigned char parameter(unsigned char a, unsigned char b, unsigned char c)
 
 	return d;
 }
+int dayofweek(unsigned char d, unsigned char m, int y)
+{
+	unsigned char h;
+	__code unsigned char t[] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+	y -= m < 3;
+	h = (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
+	if (h == 0)
+		h = 7;
+	return h;
+}
+
 void tombol()
 {
 	unsigned char a;
@@ -480,8 +491,9 @@ void tombol()
 		seting(4, 1, 31); //tanggal
 		seting(5, 1, 12); //bulan
 		seting(7, 0, 99); //tahun
-		seting(3, 1, 7);  //hari
-		tulisjam();		  //simpan seting
+		// seting(3, 1, 7);  //hari
+		data[hari] = dayofweek(makedec(data[tanggal]), makedec(data[bulan]), makedec(data[tahun]) + 2000);
+		tulisjam(); //simpan seting
 		bacaJadwal();
 		delay(600);
 		PowerOn();
